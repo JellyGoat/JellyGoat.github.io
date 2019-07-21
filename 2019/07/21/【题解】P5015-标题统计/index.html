@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="既然这个题这么水   大家不如来盘点一下算法呗 首先说一个事：逗号表达式这玩意的值是最后一个表达式的值那么我们就可以愉快的放进循环条件里摩擦话说这个应该是基础吧，大多数代码都可以这样干具体可以后面看代码（会有注释）  好的，下面是正题（真·不正）   方法一：getchar法(相当于cin.get(a))这个知识点在我的题解里：https://www.luogu.org/blog/jelly123">
+<meta name="keywords" content="None">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【题解】P5015 标题统计">
+<meta property="og:url" content="http://yoursite.com/2019/07/21/【题解】P5015-标题统计/index.html">
+<meta property="og:site_name" content="Jelly&#39;s Blog">
+<meta property="og:description" content="既然这个题这么水   大家不如来盘点一下算法呗 首先说一个事：逗号表达式这玩意的值是最后一个表达式的值那么我们就可以愉快的放进循环条件里摩擦话说这个应该是基础吧，大多数代码都可以这样干具体可以后面看代码（会有注释）  好的，下面是正题（真·不正）   方法一：getchar法(相当于cin.get(a))这个知识点在我的题解里：https://www.luogu.org/blog/jelly123">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-21T06:48:26.130Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【题解】P5015 标题统计">
+<meta name="twitter:description" content="既然这个题这么水   大家不如来盘点一下算法呗 首先说一个事：逗号表达式这玩意的值是最后一个表达式的值那么我们就可以愉快的放进循环条件里摩擦话说这个应该是基础吧，大多数代码都可以这样干具体可以后面看代码（会有注释）  好的，下面是正题（真·不正）   方法一：getchar法(相当于cin.get(a))这个知识点在我的题解里：https://www.luogu.org/blog/jelly123">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>【题解】P5015 标题统计</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/07/21/【题解】-P1200-USACO1-1-你的飞碟在这儿Your-Ride-Is-Here/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/07/21/hello-world/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&text=【题解】P5015 标题统计"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&is_video=false&description=【题解】P5015 标题统计"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【题解】P5015 标题统计&body=Check out this article: http://yoursite.com/2019/07/21/【题解】P5015-标题统计/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&name=【题解】P5015 标题统计&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#大家不如来盘点一下算法呗"><span class="toc-number">1.</span> <span class="toc-text">大家不如来盘点一下算法呗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：getchar法"><span class="toc-number">2.</span> <span class="toc-text">方法一：getchar法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：getline法"><span class="toc-number">3.</span> <span class="toc-text">方法二：getline法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：gets法"><span class="toc-number">4.</span> <span class="toc-text">方法三：gets法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#这个方法必须小心（作死）使用！！！"><span class="toc-number">5.</span> <span class="toc-text">这个方法必须小心（作死）使用！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法四：顺序结构硬输入法！！！"><span class="toc-number">6.</span> <span class="toc-text">方法四：顺序结构硬输入法！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法五：库函数摩擦法（附加迭代）"><span class="toc-number">7.</span> <span class="toc-text">方法五：库函数摩擦法（附加迭代）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#彩蛋一："><span class="toc-number">7.1.</span> <span class="toc-text">彩蛋一：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#彩蛋二："><span class="toc-number">7.2.</span> <span class="toc-text">彩蛋二：</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【题解】P5015 标题统计
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Jelly's Blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-07-21T06:47:44.000Z" itemprop="datePublished">2019-07-21</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>既然这个题<del>这么水</del>  </p>
+<h3 id="大家不如来盘点一下算法呗"><a href="#大家不如来盘点一下算法呗" class="headerlink" title="大家不如来盘点一下算法呗"></a>大家不如来<del>盘点一下算法</del>呗</h3><hr>
+<p>首先说一个事：逗号表达式<br>这玩意的值是最后一个表达式的值<br>那么我们就可以愉快的放进循环条件里摩擦<br><del>话说这个应该是基础吧，大多数代码都可以这样干</del><br>具体可以后面看代码（会有注释）</p>
+<hr>
+<p>好的，下面是<del>正题</del>（真·不正） </p>
+<hr>
+<h3 id="方法一：getchar法"><a href="#方法一：getchar法" class="headerlink" title="方法一：getchar法"></a>方法一：getchar法</h3><p>(相当于cin.get(a))<br>这个知识点在我的题解里：<br><a href="https://www.luogu.org/blog/jelly123/solution-p1200" target="_blank" rel="noopener">https://www.luogu.org/blog/jelly123/solution-p1200</a><br>代码：（getchar）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char a;int s=0;</span><br><span class="line">    while(a=getchar(),a!=&apos;\n&apos;)</span><br><span class="line">    &#123;//↑就是了，循环先输入后判断，真香QWQ </span><br><span class="line">    	if (a!=&apos; &apos;)</span><br><span class="line">		&#123;</span><br><span class="line">    		s++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;,s);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了，我们暂且撤离，看看cin.get()版:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;char a;int s=0;</span><br><span class="line">    while(cin.get(a),a!=&apos;\n&apos;)if (a!=&apos; &apos;)s++;</span><br><span class="line">	cout&lt;&lt;s；</span><br><span class="line">    return 0;&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="方法二：getline法"><a href="#方法二：getline法" class="headerlink" title="方法二：getline法"></a>方法二：getline法</h3><p>这个方法<del>小心食用</del></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;int count=0,i=0;string input;</span><br><span class="line">	getline(cin,input);</span><br><span class="line">	for (i=0;i&lt;input.size();i++)&#123;</span><br><span class="line">		if (input[i]!=&apos; &apos;&amp;&amp;input[i]!=&apos;\n&apos;)count++;&#125;</span><br><span class="line">	cout&lt;&lt;count;return 0;&#125;</span><br><span class="line">//为了缩短长度，将就着看吧</span><br></pre></td></tr></table></figure>
+
+<p>但是cin.getline<del>还没研究出来…</del><br>（真是一个蒟蒻啊QAQ）</p>
+<hr>
+<h3 id="方法三：gets法"><a href="#方法三：gets法" class="headerlink" title="方法三：gets法"></a>方法三：gets法</h3><h3 id="这个方法必须小心（作死）使用！！！"><a href="#这个方法必须小心（作死）使用！！！" class="headerlink" title="这个方法必须小心（作死）使用！！！"></a>这个方法必须小心（作死）使用！！！</h3><p>@shm124<br>感谢这位同学提供的for循环里的核心</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;int ans=0,i=0;char s[8];</span><br><span class="line">	memset(s,0,sizeof(s));gets(s);</span><br><span class="line">	for(int i=0;i&lt;8;i++)</span><br><span class="line">        if(s[i]&gt;=&apos;A&apos;&amp;&amp;s[i]&lt;=&apos;Z&apos;)ans++;</span><br><span class="line">        if(s[i]&gt;=&apos;a&apos;&amp;&amp;s[i]&lt;=&apos;z&apos;)ans++;</span><br><span class="line">        if(s[i]&gt;=&apos;0&apos;&amp;&amp;s[i]&lt;=&apos;9&apos;)ans++;</span><br><span class="line">	cout&lt;&lt;ans;return 0;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好的，我们现在有了几种基础方法，那能不能看看题…<br>没错，5个字符，直接顺序不就好了吗…<br>所以…</p>
+<hr>
+<h3 id="方法四：顺序结构硬输入法！！！"><a href="#方法四：顺序结构硬输入法！！！" class="headerlink" title="方法四：顺序结构硬输入法！！！"></a>方法四：顺序结构硬输入法！！！</h3><p>@Lhc_fl <del>真鸡贼啊</del>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int ans=0;</span><br><span class="line">    char c;</span><br><span class="line">    if(cin&gt;&gt;c)ans++; //cin自动去除空格换行</span><br><span class="line">    if(cin&gt;&gt;c)ans++; //cin在读不到数据时返回0</span><br><span class="line">    if(cin&gt;&gt;c)ans++;</span><br><span class="line">    if(cin&gt;&gt;c)ans++;</span><br><span class="line">    if(cin&gt;&gt;c)ans++;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>经过了这么多<del>蒟蒻做法</del>（打卡），<br>不如来看看库函数之类的蹭一蹭…</p>
+<hr>
+<h3 id="方法五：库函数摩擦法（附加迭代）"><a href="#方法五：库函数摩擦法（附加迭代）" class="headerlink" title="方法五：库函数摩擦法（附加迭代）"></a>方法五：库函数摩擦法（附加迭代）</h3><p>感谢dalao@黄H睿R %%%  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;cctype&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string st;</span><br><span class="line">int ans;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    getline(cin,st);</span><br><span class="line">    for(string::iterator it=st.begin();it!=st.end();it++)//使用迭代器</span><br><span class="line">     if(isalnum(*it))</span><br><span class="line">      ans++;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法五里面：#include<cctype>是库函数的库，<br>库函数是isalnum(*it)，没错，一开始我没有加上… </cctype></p>
+<hr>
+<p>然而我们的方法<del>并没有完</del>…  </p>
+<h4 id="彩蛋一："><a href="#彩蛋一：" class="headerlink" title="彩蛋一："></a>彩蛋一：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int ans=0;</span><br><span class="line">char s;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    while(cin&gt;&gt;s)if(s!=&apos; &apos;) ans++;</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>强制输入…注意win 系统下调试<br>（（ctrl+z）+enter）×2即可..</p>
+<h4 id="彩蛋二："><a href="#彩蛋二：" class="headerlink" title="彩蛋二："></a>彩蛋二：</h4><p>现在我们的c++更新真快啊..<br>合并都只需要+-了吗？！<br>然而是的…<br>@Nova_守门员<br>你的题解我进行了优化，<del>主函数真是简单</del></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string input()</span><br><span class="line">&#123;</span><br><span class="line">	char ch;</span><br><span class="line">    string str=&quot;&quot;;</span><br><span class="line">    ch=getchar();</span><br><span class="line">    while(ch!=&apos;\n&apos;)</span><br><span class="line">	&#123;</span><br><span class="line">        if (ch!=&apos; &apos;)str+=ch;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    return str;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	string s;</span><br><span class="line">	s=input();</span><br><span class="line">	cout&lt;&lt;s.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了，就说<del>这么多(真少)</del><br>有什么问题请评论…<br>纯知识点整理贴（放心，真人测试可AC）<br><del>蒟蒻求过，辛苦到家</del></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#大家不如来盘点一下算法呗"><span class="toc-number">1.</span> <span class="toc-text">大家不如来盘点一下算法呗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：getchar法"><span class="toc-number">2.</span> <span class="toc-text">方法一：getchar法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：getline法"><span class="toc-number">3.</span> <span class="toc-text">方法二：getline法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：gets法"><span class="toc-number">4.</span> <span class="toc-text">方法三：gets法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#这个方法必须小心（作死）使用！！！"><span class="toc-number">5.</span> <span class="toc-text">这个方法必须小心（作死）使用！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法四：顺序结构硬输入法！！！"><span class="toc-number">6.</span> <span class="toc-text">方法四：顺序结构硬输入法！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法五：库函数摩擦法（附加迭代）"><span class="toc-number">7.</span> <span class="toc-text">方法五：库函数摩擦法（附加迭代）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#彩蛋一："><span class="toc-number">7.1.</span> <span class="toc-text">彩蛋一：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#彩蛋二："><span class="toc-number">7.2.</span> <span class="toc-text">彩蛋二：</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&text=【题解】P5015 标题统计"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&is_video=false&description=【题解】P5015 标题统计"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【题解】P5015 标题统计&body=Check out this article: http://yoursite.com/2019/07/21/【题解】P5015-标题统计/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&title=【题解】P5015 标题统计"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/07/21/【题解】P5015-标题统计/&name=【题解】P5015 标题统计&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Jelly_Goat
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
